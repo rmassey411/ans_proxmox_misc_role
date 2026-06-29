@@ -1,0 +1,27 @@
+---
+- name: Create Proxmox VM
+  community.proxmox.proxmox_kvm:
+    api_host: "{{ proxmox_vm_create_api_host }}"
+    api_user: "{{ proxmox_vm_create_api_user }}"
+    api_password: "{{ proxmox_vm_create_api_password }}"
+    validate_certs: "{{ proxmox_vm_create_validate_certs | bool }}"
+    node: "{{ proxmox_vm_create_node }}"
+    vmid: "{{ proxmox_vm_create_vmid }}"
+    name: "{{ proxmox_vm_create_name }}"
+    ostype: "{{ proxmox_vm_create_ostype }}"
+    cores: "{{ proxmox_vm_create_cores }}"
+    sockets: "{{ proxmox_vm_create_sockets }}"
+    memory: "{{ proxmox_vm_create_memory }}"
+    cpu: "{{ proxmox_vm_create_cpu }}"
+    onboot: "{{ proxmox_vm_create_onboot | bool }}"
+    net: "{{ proxmox_vm_create_net }}"
+    disk: "{{ proxmox_vm_create_disk }}"
+    state: "{{ proxmox_vm_create_state }}"
+    timeout: "{{ proxmox_vm_create_timeout }}"
+  register: proxmox_vm_create_result
+  no_log: true
+
+- name: Show Proxmox VM creation result
+  ansible.builtin.debug:
+    var: proxmox_vm_create_result
+  when: proxmox_vm_create_debug | bool

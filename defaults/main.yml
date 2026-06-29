@@ -1,2 +1,28 @@
 ---
 # defaults file for ans_proxmox_misc_role
+
+proxmox_vm_create_enabled: true
+proxmox_vm_create_debug: false
+
+proxmox_vm_create_api_host: "proxmox.example.com"
+proxmox_vm_create_api_user: "root@pam"
+proxmox_vm_create_api_password: "changeme"
+proxmox_vm_create_validate_certs: false
+proxmox_vm_create_node: "pve"
+proxmox_vm_create_vmid: 100
+proxmox_vm_create_name: "ansible-vm"
+proxmox_vm_create_ostype: "l26"
+proxmox_vm_create_cores: 2
+proxmox_vm_create_sockets: 1
+proxmox_vm_create_memory: 2048
+proxmox_vm_create_cpu: "host"
+proxmox_vm_create_onboot: true
+proxmox_vm_create_net:
+  bridge: vmbr0
+  model: virtio
+proxmox_vm_create_disk:
+  size: 32G
+  storage: local-lvm
+  type: scsi
+proxmox_vm_create_state: "present"
+proxmox_vm_create_timeout: 600
